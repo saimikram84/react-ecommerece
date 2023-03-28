@@ -1,0 +1,22 @@
+.home-section-1{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: white;
+
+}
+.home-section-1 .categories{
+    background-color: #fff;
+    padding: 10px;
+}
+.home-section-1 .categories .list-group{
+    border-radius: 0px;
+}
+.home-section-1 .categories .list-group .list-group-item{
+    border-bottom: 1px solid #eee;
+}
+.home-section-1 .popular-categories{
+    padding: 10px;
+}
+.home-section-1 .popular-categories p{
+    font-size: 14px;
+}

@@ -1,0 +1,14 @@
+
+.section-header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+.section-header-search-input{
+    width: 400px;
+}
+.section-header-second{
+    margin-top: 80px;
+    background-color: #fff;
+}
