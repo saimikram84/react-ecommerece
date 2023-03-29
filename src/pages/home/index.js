@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect, useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import './index.css';
 import Header from './../../components/Header';
 import Slider from "../../components/Slider";
 import Products from "../../components/Products/Products";
 import Footer from "../../components/Footer/Footer";
-import { Container, Row, Col, ListGroup, Image  } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
+import { getProducts } from '../../redux/products/actions';
 
-const Home = () => {
+const Home = (props) => {
+    const [products,setProducts] = useState([]);
+    useEffect(() => {
+        if(props.products!==undefined && props.products.length>0){
+            setProducts(props.products);
+        }
+    }, [props.products]);
 
+    useEffect(() => {
+        return ()=>{
+            props.getProductsFunc();
+        }
+    }, [])
     return (
         <div className="home">
             <Header />
@@ -36,7 +51,7 @@ const Home = () => {
                                     <p>Men Clothing</p>
                                 </Col>
                                 <Col>
-                                    <Image src={process.env.PUBLIC_URL+'assets/images/slider-4.svg'} fluid/>
+                                    <Image src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} fluid />
                                 </Col>
                             </Row>
                             <Row>
@@ -44,7 +59,7 @@ const Home = () => {
                                     <p>Winter Clothing</p>
                                 </Col>
                                 <Col>
-                                    <Image src={process.env.PUBLIC_URL+'assets/images/slider-4.svg'} fluid/>
+                                    <Image src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} fluid />
                                 </Col>
                             </Row>
                             <Row>
@@ -52,7 +67,7 @@ const Home = () => {
                                     <p>Home Clothing</p>
                                 </Col>
                                 <Col>
-                                    <Image src={process.env.PUBLIC_URL+'assets/images/slider-4.svg'} fluid/>
+                                    <Image src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} fluid />
                                 </Col>
                             </Row>
                             <Row>
@@ -60,7 +75,7 @@ const Home = () => {
                                     <p>Men Clothing</p>
                                 </Col>
                                 <Col>
-                                    <Image src={process.env.PUBLIC_URL+'assets/images/slider-4.svg'} fluid/>
+                                    <Image src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} fluid />
                                 </Col>
                             </Row>
                             <Row>
@@ -68,18 +83,32 @@ const Home = () => {
                                     <p>Men Clothing</p>
                                 </Col>
                                 <Col>
-                                    <Image src={process.env.PUBLIC_URL+'assets/images/slider-4.svg'} fluid/>
+                                    <Image src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} fluid />
                                 </Col>
                             </Row>
-                            
+
                         </div>
                     </Col>
                 </Row>
             </Container>
-            <Products/>
-            <Footer/>
+            <Products products={products}/>
+            <Footer />
         </div>
     )
 }
-
-export default Home;
+Home.propTypes = {
+    getProductsFunc: PropTypes.func
+}
+const mapStateToProps = state => {
+    return {
+        products: state.productReducer.products
+    };
+};
+const mapDispatchToProps = dispatch => {
+    return {
+        getProductsFunc: () => {
+            dispatch(getProducts());
+        }
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

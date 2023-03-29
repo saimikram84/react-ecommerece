@@ -1,18 +1,19 @@
 import {
-    SET_PRODUCT,
-    SELECTED_PRODUCT
+    GET_PRODUCTS,
+    GET_PRODUCTS_SUCCESS,
+    GET_PRODUCTS_FAILURE
 } from './contants';
+import {getProductsRequest} from '../products/model';
 
-export const setProducts = (products) => {
-    return {
-        type : SET_PRODUCT,
-        payload : products
+export const getProducts = () => {
+    return async dispatch=>{
+        try{
+            dispatch({type : GET_PRODUCTS});
+            const apiReponse = await getProductsRequest();
+            dispatch({type : GET_PRODUCTS_SUCCESS, payload: apiReponse});
+        }
+        catch(err){
+            dispatch({type : GET_PRODUCTS_FAILURE, payload : err.error});
+        }
     };
 };
-
-export const selectedProducts = (product) => {
-    return {
-        type : SELECTED_PRODUCT,
-        payload : product
-    }
-}

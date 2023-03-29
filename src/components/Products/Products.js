@@ -2,160 +2,39 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import './Products.css';
 
 
-function Products() {
+function Products(products) {
     return (
         <Container className="section-product-list">
             <h1 className="text-center">Products</h1>
-            <br/>
+            <br />
             <Row>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card >
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-            </Row>
-            <br/>
-            <br/>
-            <Row>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card >
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
-                <Col lg='3' md='3' sm='12'>
-                    <div className="product-box">
-                        <Card>
-                            <Card.Img variant="top" src={process.env.PUBLIC_URL + 'assets/images/slider-4.svg'} />
-                            <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                </Col>
+                {
+                    (products.products !== undefined && products.products.length > 0) ?
+                        products.products.map((item, key) => {
+                            return (
+                                <Col lg='3' md='3' sm='12' key={key} className="mb-3">
+                                    <div className="product-box">
+                                        <Card >
+                                            <Card.Img variant="top" src={item.image} height={'300'}/>
+                                            <Card.Body>
+                                                <Card.Title>{item.title.substring(0,20)}</Card.Title>
+                                                <h6><b>{item.category}</b></h6>
+                                                <Card.Text>
+                                                    {item.description.substring(0, 100)}
+                                                </Card.Text>
+                                                <h5>Price : ${item.price}</h5>
+                                            </Card.Body>
+                                            <Card.Body>
+                                                <Card.Link href="#">Card Link</Card.Link>
+                                                <Card.Link href="#">Another Link</Card.Link>
+                                            </Card.Body>
+                                        </Card>
+                                    </div>
+                                </Col>
+                            )
+                        })
+                        : ''
+                }
             </Row>
         </Container>
     )
