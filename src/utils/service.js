@@ -7,7 +7,7 @@ import axios from 'axios';
  * Setting up default base URL for axois
  * @type {string}
  */
-axios.defaults.baseURL = 'https://fakestoreapi.com/';
+axios.defaults.baseURL = '';
 
 /**
  * Get auth token

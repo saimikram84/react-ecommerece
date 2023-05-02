@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { connect, useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
+import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import './index.css';
 import Header from './../../components/Header';
 import Slider from "../../components/Slider";
-import Products from "../../components/Products/Products";
+import Product from "../../components/Product/Product";
 import Footer from "../../components/Footer/Footer";
 import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
 import { getProducts } from '../../redux/products/actions';
@@ -91,7 +90,7 @@ const Home = (props) => {
                     </Col>
                 </Row>
             </Container>
-            <Products products={products}/>
+            <Product products={products}/>
             <Footer />
         </div>
     )

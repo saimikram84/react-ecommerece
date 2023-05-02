@@ -1,8 +1,9 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
-import './Products.css';
+import './index.css';
+import { Link } from "react-router-dom";
 
 
-function Products(products) {
+function ProductsList(products) {
     return (
         <Container className="section-product-list">
             <h1 className="text-center">Products</h1>
@@ -15,10 +16,12 @@ function Products(products) {
                                 <Col lg='3' md='3' sm='12' key={key} className="mb-3">
                                     <div className="product-box">
                                         <Card >
-                                            <Card.Img variant="top" src={item.image} height={'300'}/>
+                                            <Link to='/'>
+                                            </Link>
+                                            <Card.Img variant="top" src={item.images[0]} height={'300'}/>
                                             <Card.Body>
                                                 <Card.Title>{item.title.substring(0,20)}</Card.Title>
-                                                <h6><b>{item.category}</b></h6>
+                                                <h6><b>{item.category.name}</b></h6>
                                                 <Card.Text>
                                                     {item.description.substring(0, 100)}
                                                 </Card.Text>
@@ -40,4 +43,4 @@ function Products(products) {
     )
 }
 
-export default Products;
+export default ProductsList;

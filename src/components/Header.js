@@ -4,7 +4,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { FaCartArrowDown } from "react-icons/fa";
@@ -59,6 +58,7 @@ function Header() {
             >
               <Link to="/" className='nav-link'>Home</Link>
               <Link to="/about" className='nav-link'>About</Link>
+              <Link to="/products" className='nav-link'>Products</Link>
               <NavDropdown title="Categories" id="navbarScrollingDropdown" align="end">
                 <NavDropdown.Item href="#action3">Categories</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
